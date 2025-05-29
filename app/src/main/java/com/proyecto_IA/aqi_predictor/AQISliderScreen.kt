@@ -85,14 +85,14 @@ fun AQISliderScreen(onClickResult :(String) -> Unit = {}){
             )
         }
     ){ innerPadding ->
-        val temperature = remember { mutableFloatStateOf(25f) }
-        val humidity = remember { mutableFloatStateOf(60f) }
-        val pmTotal = remember { mutableFloatStateOf(20f) }
-        val no2 = remember { mutableFloatStateOf(25f) }
-        val so2 = remember { mutableFloatStateOf(10f) }
+        val temperature = remember { mutableFloatStateOf(27f) }
+        val humidity = remember { mutableFloatStateOf(70f) }
+        val pmTotal = remember { mutableFloatStateOf(23f) }
+        val no2 = remember { mutableFloatStateOf(21f) }
+        val so2 = remember { mutableFloatStateOf(5f) }
         val co = remember { mutableFloatStateOf(1f) }
-        val proximity = remember { mutableFloatStateOf(1f) }
-        val populationDensity = remember { mutableFloatStateOf(500f) }
+        val proximity = remember { mutableFloatStateOf(12f) }
+        val populationDensity = remember { mutableFloatStateOf(300f) }
 
 
         Column (
@@ -135,14 +135,14 @@ fun AQISliderScreen(onClickResult :(String) -> Unit = {}){
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            AQISlider("Temperature (°C)", 13f, 50f, temperature)
-            AQISlider("Humidity (%)", 30f, 100f, humidity)
-            AQISlider("PM total (µg/m³)", 0f, 70f, pmTotal)
-            AQISlider("NO2 (ppb)", 5f, 50f, no2)
-            AQISlider("SO2 (ppb)", 0f, 25f, so2)
-            AQISlider("CO (ppm)", 0f, 25f, co)
-            AQISlider("Proximidad a zonas industriales (km)", 0f, 3f, proximity)
-            AQISlider("Densidad poblacional (personas/km²)", 188f, 1000f, populationDensity)
+            AQISlider("Temperature (°C)", 13f, 58f, temperature)
+            AQISlider("Humidity", 30f, 130f, humidity)
+            AQISlider("PM total (µg/m³)", 0f, 125f, pmTotal)
+            AQISlider("NO2 (ppb)", 5f, 70f, no2)
+            AQISlider("SO2 (ppb)", 0f, 45f, so2)
+            AQISlider("CO (ppm)", 0f, 4f, co)
+            AQISlider("Proximidad a zonas industriales (km)", 0f, 25f, proximity)
+            AQISlider("Densidad poblacional (personas/km²)", 100f, 1000f, populationDensity)
 
             Spacer(modifier = Modifier.height(16.dp))
 

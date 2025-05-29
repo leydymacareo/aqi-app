@@ -23,7 +23,7 @@ fun Navigation() {
         }
         composable("resultado/{prediccion}") { backStackEntry ->
             val prediccion = backStackEntry.arguments?.getString("prediccion") ?: "Desconocido"
-            ResultadosScreen(prediccion = prediccion )
+            ResultadosScreen(prediccion = prediccion, navController = myNavController )
             }
         }
     }
