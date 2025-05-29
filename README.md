@@ -1,6 +1,8 @@
 # AQI Predictor - App de Predicción de Calidad del Aire
 
-Aplicación desarrollada con Jetpack Compose y Kotlin que predice la calidad del aire (Air Quality Index) según parámetros ambientales y demográficos ingresados por el usuario. Utiliza una API para procesar los datos y mostrar una predicción en tiempo real.
+AQI Predictor es una aplicación móvil desarrollada con Kotlin y Jetpack Compose que permite predecir la calidad del aire (Air Quality Index) a partir de datos ambientales y demográficos ingresados por el usuario. A través de una interfaz intuitiva y dinámica, la app envía los datos a una API que responde en tiempo real con una predicción clasificada por nivel de riesgo (Good, Moderate, Poor o Hazardous), acompañada de un mensaje explicativo y un código de color para facilitar su interpretación.
+
+La aplicación surge como respuesta a la necesidad de contar con herramientas accesibles para evaluar la calidad del aire, especialmente en contextos urbanos donde la contaminación afecta la salud de la población, en particular a personas vulnerables como niños, adultos mayores y pacientes con enfermedades respiratorias. AQI Predictor busca crear conciencia ambiental y ofrecer una solución útil tanto para usuarios generales como para fines educativos, científicos y de demostración tecnológica.
 
 ---
 
@@ -27,7 +29,7 @@ Aplicación desarrollada con Jetpack Compose y Kotlin que predice la calidad del
 
 ---
 
-## 📊 Parámetros utilizados
+## Parámetros utilizados
 
 A continuación se explican los valores que el usuario debe ingresar:
 
