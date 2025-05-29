@@ -1,5 +1,6 @@
 package com.proyecto_IA.aqi_predictor
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -45,22 +46,20 @@ import com.proyecto_IA.aqi_predictor.model.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlinx.serialization.builtins.ShortArraySerializer
 import java.io.DataInput
 
 suspend fun enviarDatosAQI(input: AQIInput): String {
-    return withContext(Dispatchers.IO) {
-        try {
-            val  response = RetrofitInstance.api.getPrediction(input)
-            if (response.isSuccessful){
-                response.body()?.prediccion?: "Sin respuesta"
-            } else {
-                "Error ${response.code()}"
-            }
-        } catch (e: Exception){
-            "Error: ${e.localizedMessage}"
-        }
+    return try {
+        val response = RetrofitClient.api.predict(input)
+
+        response.prediccion // si es PredictionResponse
+
+    } catch (e: Exception) {
+        "Error: ${e.localizedMessage}"
     }
 }
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -153,18 +152,17 @@ fun AQISliderScreen(onClickResult :(String) -> Unit = {}){
                         val input = AQIInput(
                             temperatura = temperature.value,
                             humedad = humidity.value,
-                            pm_total = pmTotal.value,
+                            pmTotal = pmTotal.value,
                             no2 = no2.value,
                             so2 = so2.value,
                             co = co.value,
                             proximidad = proximity.value,
-                            densidad_poblacional = populationDensity.value
+                            densidadPoblacional = populationDensity.value
                         )
 
                         val prediccion = enviarDatosAQI(input)
-                        onClickResult(prediccion)
-
-                        navController.navigate("resultado/$prediccion")
+                        Log.d("", prediccion);
+                        onClickResult(prediccion) // ← ya navega desde Navigation()
                     }
                 },
                 modifier = Modifier

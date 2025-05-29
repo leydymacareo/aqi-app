@@ -1,12 +1,10 @@
-package com.proyecto_IA.aqi_predictor.model
-
 import com.proyecto_IA.aqi_predictor.model.AQIInput
-import com.proyecto_IA.aqi_predictor.model.AQIResponse
-import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-interface AQIApiService{
+data class PredictionResponse(val prediccion: String)
+
+interface ApiService {
     @POST("/predict")
-    suspend fun getPrediction(@Body input: AQIInput): Response<AQIResponse>
+    suspend fun predict(@Body input: AQIInput): PredictionResponse
 }

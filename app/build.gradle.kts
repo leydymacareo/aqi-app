@@ -64,5 +64,8 @@ dependencies {
     implementation (libs.retrofit)
     implementation (libs.converter.gson)
 
+    // usar Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 
 }
